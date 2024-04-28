@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo } from 'react';
 import { Button } from 'components/Button';
 import { usePollOptions } from './PollOptionsContext';
 import { useSubmitPoll } from 'data/poll/useSubmitPoll';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 interface SubmitButtonProps {
   pollQuestion: string;
@@ -38,12 +38,13 @@ export const SubmitButton = ({ pollQuestion, loading }: SubmitButtonProps) => {
   }, [options, submitPoll, pollQuestion, isValid, setErrorMessage, hasChanged]);
 
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   useEffect(() => {
     if (data?.data) {
-      navigate(`?id=${data.data.id}`);
+      navigate(`${pathname}?id=${data.data.id}`);
     }
-  }, [data, navigate]);
+  }, [data, navigate, pathname]);
 
   const isLoading = useMemo(() => {
     return loading || isPending;

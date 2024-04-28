@@ -17,7 +17,7 @@ import { PollOptionsProvider } from './PollOptionsContext';
 import { SubmitButton } from './SubmitButton';
 
 export const PollBox = () => {
-  const { search } = useLocation();
+  const { search, pathname } = useLocation();
   const navigate = useNavigate();
   const idFromRoute = useMemo(() => {
     return new URLSearchParams(search).get('id');
@@ -27,10 +27,10 @@ export const PollBox = () => {
 
   const handleOnChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
-      navigate('');
+      navigate(pathname);
       setPollQuestion(e.target.value);
     },
-    [navigate]
+    [navigate, pathname]
   );
 
   const { data, isPending } = usePoll({ pollQuestion, id: idFromRoute });
@@ -38,9 +38,9 @@ export const PollBox = () => {
   useEffect(() => {
     if (data && data.question) {
       setPollQuestion(data.question);
-      navigate(`?id=${data.id}`);
+      navigate(`${pathname}?id=${data.id}`);
     }
-  }, [data, navigate]);
+  }, [data, navigate, pathname]);
 
   const { t } = useTranslation();
 
