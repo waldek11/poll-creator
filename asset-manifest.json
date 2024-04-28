@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/poll-creator/static/js/main.74d81e3c.js",
+    "main.js": "/poll-creator/static/js/main.dd643b2a.js",
     "index.html": "/poll-creator/index.html",
     "static/media/getFetch.cjs": "/poll-creator/static/media/getFetch.c4cca45e22bc1b2c7d0d.cjs",
-    "main.74d81e3c.js.map": "/poll-creator/static/js/main.74d81e3c.js.map"
+    "main.dd643b2a.js.map": "/poll-creator/static/js/main.dd643b2a.js.map"
   },
   "entrypoints": [
-    "static/js/main.74d81e3c.js"
+    "static/js/main.dd643b2a.js"
   ]
 }
