@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled, { ThemeProvider } from 'styled-components';
+import { theme } from './theme';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { PollBox } from './views/poll';
+import { BrowserRouter } from 'react-router-dom';
+import './i18n';
 
-function App() {
+const queryClient = new QueryClient();
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider theme={theme}>
+          <StyledContainer>
+            <PollBox />
+          </StyledContainer>
+        </ThemeProvider>
+      </QueryClientProvider>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
+
+const StyledContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-top: 6.25rem;
+
+  @media only screen and (max-width: 600px) {
+    padding-top: 1.5rem;
+  }
+`;
