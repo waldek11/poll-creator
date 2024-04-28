@@ -33,7 +33,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -54,7 +56,9 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^6.1.1",
     "nodemon": "^3.1.0",
     "ts-node": "^10.9.2"
-  }
+  },
+  "homepage": "https://waldek11.github.io/poll-creator"
 }
