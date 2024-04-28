@@ -12,6 +12,8 @@ const StyledInput = styled.input`
   height: 2rem; // figma says 33px, but setting to 32px (counts of 8)
   border-bottom: 1px solid ${({ theme }) => theme.color.border};
   outline: none;
+  font-weight: 400;
+  font-size: 1rem;
 
   &::placeholder {
     color: ${({ theme }) => theme.color.inputPlaceholder};
