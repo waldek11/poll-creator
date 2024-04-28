@@ -16,6 +16,7 @@ export const PollOption = ({ option, onRemove }: any) => {
 const StyledContainer = styled.div`
   padding: 1rem; // 17px (adjusted for counts of 8)
   justify-content: space-between;
+  align-items: center;
   display: flex;
 `;
 
