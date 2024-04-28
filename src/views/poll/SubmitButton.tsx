@@ -41,7 +41,7 @@ export const SubmitButton = ({ pollQuestion, loading }: SubmitButtonProps) => {
 
   useEffect(() => {
     if (data?.data) {
-      navigate(`/?id=${data.data.id}`);
+      navigate(`?id=${data.data.id}`);
     }
   }, [data, navigate]);
 

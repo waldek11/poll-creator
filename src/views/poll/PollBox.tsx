@@ -27,7 +27,7 @@ export const PollBox = () => {
 
   const handleOnChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
-      navigate('/');
+      navigate('');
       setPollQuestion(e.target.value);
     },
     [navigate]
@@ -38,7 +38,7 @@ export const PollBox = () => {
   useEffect(() => {
     if (data && data.question) {
       setPollQuestion(data.question);
-      navigate(`/?id=${data.id}`);
+      navigate(`?id=${data.id}`);
     }
   }, [data, navigate]);
 
